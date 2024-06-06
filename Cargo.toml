@@ -1,8 +1,23 @@
 [package]
-name = "rust-text-editor"
+name = "ctext"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+unicode-width = "0.1.13"
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2.155"
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3.9", default-features = false, features = ["wincon"] }
+winapi-util = "0.1.8"
+
+[dev-dependencies]
+tempfile = "3.10.1"
+serial_test = "3.1.1"
+
+[badges]
+maintenance = { status = "actively-developed" }
